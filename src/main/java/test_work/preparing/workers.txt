@@ -1,0 +1,7 @@
+    5 12333                          222,00          fixed
+    6 323333                         222,00          fixed
+    0 Dima                           222,00          fixed
+    2 sefjdf                         222,00          fixed
+    4 2312                           36940,80        hour
+    1 efisejif                       36940,80        hour
+    3 sdnfndf                        36940,80        hour
