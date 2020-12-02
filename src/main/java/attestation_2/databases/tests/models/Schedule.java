@@ -1,12 +1,10 @@
 package attestation_2.databases.tests.models;
 
-import attestation_2.databases.utils.Dao;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "schedule")
+@Table(name = "schedules")
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,13 +33,13 @@ public class Schedule {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
-    private TestList test;
+    private TestList testList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group group;
 
-    protected Schedule() {}
+    public Schedule() {}
 
     public Schedule(int duration, Date startDate, Date startTime, Date endDate, Date endTime, boolean active) {
         this.duration = duration;
@@ -80,8 +78,8 @@ public class Schedule {
         return active;
     }
 
-    public TestList getTest() {
-        return test;
+    public TestList getTestList() {
+        return testList;
     }
 
     public Group getGroup() {
@@ -112,8 +110,8 @@ public class Schedule {
         this.active = active;
     }
 
-    public void setTest(TestList test) {
-        this.test = test;
+    public void setTestList(TestList test) {
+        this.testList = test;
     }
 
     public void setGroup(Group group) {

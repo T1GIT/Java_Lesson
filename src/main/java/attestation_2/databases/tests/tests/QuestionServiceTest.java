@@ -1,12 +1,11 @@
-package attestation_2.databases.tests;
-
-
 import attestation_2.databases.utils.HibernateSession;
 import org.hibernate.cfg.Configuration;
+import org.junit.jupiter.api.Test;
 import attestation_2.databases.tests.models.*;
+import attestation_2.databases.tests.services.QuestionService;
 
-public class TestTests {
-    private static void init() {
+class QuestionServiceTest {
+    private void init() {
         HibernateSession.setConf(new Configuration().configure("tests.cfg.xml")
                 .addAnnotatedClass(StudentAnswer.class)
                 .addAnnotatedClass(User.class)
@@ -15,13 +14,18 @@ public class TestTests {
                 .addAnnotatedClass(TestList.class)
                 .addAnnotatedClass(Schedule.class)
                 .addAnnotatedClass(Question.class)
-                .addAnnotatedClass(Test.class)
+                .addAnnotatedClass(attestation_2.databases.tests.models.Test.class)
                 .addAnnotatedClass(Role.class)
                 .addAnnotatedClass(Subject.class)
         );
     }
 
-    public static void main(String[] args) {
+    @Test
+    void findAllQuestions() {
         init();
+        QuestionService questionService = new QuestionService();
+        for (Question question: questionService.findAllQuestions()) {
+            System.out.println(question);
+        }
     }
 }

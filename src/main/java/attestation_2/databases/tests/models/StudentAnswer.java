@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "student_answer")
+@Table(name = "std_answers")
 public class StudentAnswer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +12,7 @@ public class StudentAnswer {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
-    private TestList test;
+    private TestList testList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -28,8 +28,8 @@ public class StudentAnswer {
         return id;
     }
 
-    public TestList getTest() {
-        return test;
+    public TestList getTestList() {
+        return testList;
     }
 
     public User getStudent() {
@@ -40,8 +40,8 @@ public class StudentAnswer {
         return answer;
     }
 
-    public void setTest(TestList test) {
-        this.test = test;
+    public void setTestList(TestList test) {
+        this.testList = test;
     }
 
     public void setStudent(User student) {
@@ -56,7 +56,7 @@ public class StudentAnswer {
     public String toString() {
         return "StudentAnswer{" +
                 "id='" + id + '\'' +
-                ", test=" + test +
+                ", test=" + testList +
                 ", student=" + student +
                 ", answer=" + answer +
                 '}';

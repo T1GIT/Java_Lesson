@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "question")
+@Table(name = "questions")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +16,12 @@ public class Question {
 
     private boolean active;
 
-    protected Question() {}
+    public Question() {}
 
     public Question(String text, int score, boolean active) {
-        this.text = text;
-        this.score = score;
-        this.active = active;
+        this.setText(text);
+        this.setScore(score);
+        this.setActive(active);
     }
 
     public int getId() {
@@ -56,9 +56,9 @@ public class Question {
     public String toString() {
         return "Question{" +
                 "id='" + id + '\'' +
-                ", text='" + text + '\'' +
-                ", score=" + score +
-                ", active=" + active +
+                ", text='" + getText() + '\'' +
+                ", score=" + getScore() +
+                ", active=" + isActive() +
                 '}';
     }
 }

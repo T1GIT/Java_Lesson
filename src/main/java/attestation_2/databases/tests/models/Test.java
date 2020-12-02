@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "test")
+@Table(name = "tests")
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

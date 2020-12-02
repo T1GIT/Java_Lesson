@@ -4,7 +4,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,11 +14,11 @@ public class Group {
     @Column(unique = true)
     private String name;
     
-    private int year;
-    
-    private int semester;
+    private Integer year;
 
-    protected Group() {}
+    private Integer semester;
+
+    public Group() {}
 
     public Group(String name, int year, int semester) {
         this.name = name;
@@ -34,11 +34,11 @@ public class Group {
         return name;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public int getSemester() {
+    public Integer getSemester() {
         return semester;
     }
 
@@ -46,11 +46,11 @@ public class Group {
         this.name = name;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(Integer semester) {
         this.semester = semester;
     }
 

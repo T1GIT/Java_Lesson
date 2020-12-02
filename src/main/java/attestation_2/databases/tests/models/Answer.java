@@ -4,7 +4,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="answer")
+@Table(name="answers")
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Answer {
     @JoinColumn(name = "question_id")
     private Question question;
 
-    protected Answer() {}
+    public Answer() {}
 
     public Answer(String text, Boolean correct) {
         this.text = text;

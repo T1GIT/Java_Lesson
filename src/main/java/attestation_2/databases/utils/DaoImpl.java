@@ -1,6 +1,5 @@
-package attestation_2.databases.users_autos.utils;
+package attestation_2.databases.utils;
 
-import attestation_2.databases.utils.Dao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

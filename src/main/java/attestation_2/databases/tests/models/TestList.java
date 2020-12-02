@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "test_list")
+@Table(name = "tst_lists")
 public class TestList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class TestList {
     @JoinColumn(name = "teacher_id")
     private User teacher;
 
-    protected TestList() {}
+    public TestList() {}
 
     public TestList(String name) {
         this.name = name;

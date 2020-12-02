@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    protected User() {}
+    public User() {}
 
     public User(String firstName, String lastName, String middleName, String login, String passwordHash) {
         this.firstName = firstName;

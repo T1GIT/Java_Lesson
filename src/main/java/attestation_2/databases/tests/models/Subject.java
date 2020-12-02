@@ -3,7 +3,7 @@ package attestation_2.databases.tests.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "subject")
+@Table(name = "subjects")
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,7 @@ public class Subject {
     @Column(unique = true)
     private String name;
 
-    protected Subject() {}
+    public Subject() {}
 
     public Subject(String name) {
         this.name = name;
