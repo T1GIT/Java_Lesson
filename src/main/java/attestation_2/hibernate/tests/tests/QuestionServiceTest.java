@@ -1,8 +1,10 @@
+package tests;
+
 import attestation_2.hibernate.utils.HibernateSession;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Test;
-import attestation_2.hibernate.tests.models.*;
-import attestation_2.hibernate.tests.services.QuestionService;
+import attestation_2.hibernate.orm.tests.models.*;
+import attestation_2.hibernate.orm.tests.services.QuestionService;
 
 class QuestionServiceTest {
     private void init() {
@@ -14,7 +16,7 @@ class QuestionServiceTest {
                 .addAnnotatedClass(TestList.class)
                 .addAnnotatedClass(Schedule.class)
                 .addAnnotatedClass(Question.class)
-                .addAnnotatedClass(attestation_2.hibernate.tests.models.Test.class)
+                .addAnnotatedClass(attestation_2.hibernate.orm.tests.models.Test.class)
                 .addAnnotatedClass(Role.class)
                 .addAnnotatedClass(Subject.class)
         );
