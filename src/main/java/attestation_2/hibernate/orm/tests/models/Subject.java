@@ -6,14 +6,14 @@ import javax.persistence.*;
 @Table(name = "subjects")
 public class Subject {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
     @Column(unique = true)
     private String name;
 
-    public Subject() {}
+    protected Subject() {}
 
     public Subject(String name) {
         this.name = name;

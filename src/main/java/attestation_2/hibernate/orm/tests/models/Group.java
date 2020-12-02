@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "groups")
 public class Group {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
@@ -18,7 +18,7 @@ public class Group {
 
     private Integer semester;
 
-    public Group() {}
+    protected Group() {}
 
     public Group(String name, int year, int semester) {
         this.name = name;

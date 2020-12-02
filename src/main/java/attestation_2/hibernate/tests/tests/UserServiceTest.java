@@ -29,5 +29,9 @@ class UserServiceTest {
         for (User user: userService.findAllUsers()) {
             System.out.println(user);
         }
+
+//        for (int i = 0; i < 10; i++) {
+//            userService.saveUser(new User("name_" + i, "a", "a", "aa" + i, "ijfije"));
+//        }
     }
 }

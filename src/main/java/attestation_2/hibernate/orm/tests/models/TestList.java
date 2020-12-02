@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "tst_lists")
 public class TestList {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
@@ -20,7 +20,7 @@ public class TestList {
     @JoinColumn(name = "teacher_id")
     private User teacher;
 
-    public TestList() {}
+    protected TestList() {}
 
     public TestList(String name) {
         this.name = name;

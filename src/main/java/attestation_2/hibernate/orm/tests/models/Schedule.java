@@ -7,7 +7,7 @@ import java.util.Date;
 @Table(name = "schedules")
 public class Schedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
@@ -39,7 +39,7 @@ public class Schedule {
     @JoinColumn(name = "group_id")
     private Group group;
 
-    public Schedule() {}
+    protected Schedule() {}
 
     public Schedule(int duration, Date startDate, Date startTime, Date endDate, Date endTime, boolean active) {
         this.duration = duration;

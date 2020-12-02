@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name="answers")
 public class Answer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
@@ -19,7 +19,7 @@ public class Answer {
     @JoinColumn(name = "question_id")
     private Question question;
 
-    public Answer() {}
+    protected Answer() {}
 
     public Answer(String text, Boolean correct) {
         this.text = text;

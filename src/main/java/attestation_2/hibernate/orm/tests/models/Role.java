@@ -6,14 +6,14 @@ import javax.persistence.*;
 @Table(name = "roles")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "row_id")
     private int id;
 
     @Column(unique = true)
     private String name;
 
-    public Role() {}
+    protected Role() {}
 
     public Role(String name) {
         this.name = name;
