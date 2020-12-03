@@ -2,6 +2,7 @@ package attestation_2.spring.models;
 
 import attestation_2.spring.utils.AuditModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -14,7 +15,12 @@ import java.util.List;
 public class TestList extends AuditModel {
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(    strategy = GenerationType.SEQUENCE,    generator = "pooled-lo")
+//    @GenericGenerator(    name = "pooled-lo",
+//            strategy = "sequence",    parameters = {
+//                    @Parameter(name = "sequence_name", value = "post_sequence"),
+//                    @Parameter(name = "initial_value", value = "1"),
+//                    @Parameter(name = "optimizer", value = "pooled-lo")    })
     private int id;
 
     @NotNull

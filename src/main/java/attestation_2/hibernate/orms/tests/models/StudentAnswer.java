@@ -21,9 +21,8 @@ public class StudentAnswer {
     @JoinColumn(name = "user_id", nullable = false)
     private User student;
 
-    @NotNull
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "answer_id", nullable = false)
+    @JoinColumn(name = "answer_id")
     private Answer answer;
 
     public StudentAnswer() {}
