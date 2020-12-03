@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/users_autos</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="DB_REST_SPRING" uuid="7be64494-95dd-432f-81a7-eeb7b8e14a06">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/rest_spring</jdbc-url>
+    </data-source>
   </component>
 </project>

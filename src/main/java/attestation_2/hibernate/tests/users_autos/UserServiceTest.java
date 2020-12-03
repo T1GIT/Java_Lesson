@@ -3,9 +3,9 @@ package users_autos;
 import attestation_2.hibernate.utils.HibernateSession;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Test;
-import attestation_2.hibernate.orm.users_autos.models.Auto;
-import attestation_2.hibernate.orm.users_autos.models.User;
-import attestation_2.hibernate.orm.users_autos.services.UserService;
+import attestation_2.hibernate.orms.users_autos.models.Auto;
+import attestation_2.hibernate.orms.users_autos.models.User;
+import attestation_2.hibernate.orms.users_autos.services.UserService;
 
 class UserServiceTest {
     private void init() {
