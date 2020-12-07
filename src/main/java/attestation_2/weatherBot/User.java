@@ -3,11 +3,12 @@ import json.Parser;
 import java.io.IOException;
 
 public class User {
+    private static Subscribers subscribers;
     private static TelegramBot telegramBot;
     private static WeatherGetter weatherGetter;
     private final String chatId;
     private String name;
-    private String location = null;
+    private String location;
 
     public static void setWeatherGetter(WeatherGetter weatherGetter) {
         User.weatherGetter = weatherGetter;
@@ -15,6 +16,10 @@ public class User {
 
     public static void setTelegramBot(TelegramBot telegramBot) {
         User.telegramBot = telegramBot;
+    }
+
+    public static void setSubscribers(Subscribers subscribers) {
+        User.subscribers = subscribers;
     }
 
     public String getChatId() {
@@ -27,6 +32,10 @@ public class User {
 
     public String getLocation() {
         return location;
+    }
+
+    public boolean isSubscribed() {
+        return subscribers.contains(this);
     }
 
     public void setLocation(String location) {
@@ -46,17 +55,23 @@ public class User {
         return this.getLocation() != null;
     }
 
+    public void setSubscribed(boolean val) {
+        if (val) {
+            subscribers.add(this);
+        } else {
+            subscribers.remove(this);
+        }
+    }
+
     public void send(String text) {
-        System.out.println(hasLocation());
-        System.out.println(location);
-        telegramBot.sendMsg(chatId, text, hasLocation());
+        telegramBot.sendMsg(this, text);
     }
 
     public void sendCurrent() {
         try {
             String jsonString = weatherGetter.getCurrent(getLocation());
             String outText = Parser.current(jsonString);
-            telegramBot.sendMsg(chatId, outText, true);
+            telegramBot.sendMsg(this, outText);
         } catch (IOException e) {
             e.printStackTrace();
         }

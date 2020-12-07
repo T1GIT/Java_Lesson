@@ -28,6 +28,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         super();
         User.setTelegramBot(this);
         User.setWeatherGetter(weatherGetter);
+        User.setSubscribers(subscribers);
         subscribers.start();
     }
 
@@ -111,11 +112,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    public void sendMsg(String id, String text, boolean withMenu) {
+    public void sendMsg(User user, String text) {
         try {
             SendMessage outMsg = new SendMessage();
-            setKeyBoard(outMsg, subscribers.hasId(id), withMenu);
-            outMsg.setChatId(id);
+            setKeyBoard(outMsg, user.isSubscribed(), user.hasLocation());
+            outMsg.setChatId(user.getChatId());
             outMsg.setText(text);
             outMsg.setParseMode("HTML");
             execute(outMsg);
