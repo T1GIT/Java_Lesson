@@ -34,7 +34,6 @@ public class Subscribers extends Thread {
             @Override
             public void run() {
                 for (User user: subscribers) {
-                    System.out.println(user);
                     user.sendCurrent();
                 }
             }
