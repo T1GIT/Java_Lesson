@@ -2,7 +2,6 @@ package attestation_2.spring.controllers;
 
 import attestation_2.spring.exceptions.ResourceNotFoundException;
 import attestation_2.spring.models.Role;
-import attestation_2.spring.models.Role;
 import attestation_2.spring.repsoitories.RoleRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +27,11 @@ public class RoleController {
     public Role getRoles(@PathVariable int roleId) {
         return roleRepository.findById(roleId)
                 .orElseThrow(() -> new ResourceNotFoundException("Role not found with id " + roleId));
+    }
+
+    @GetMapping("/roles/name/{roleName}")
+    public Role getRolesByName(@PathVariable String roleName) {
+        return roleRepository.findRoleByName(roleName);
     }
 
     @PostMapping("/roles")

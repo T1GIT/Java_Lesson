@@ -47,6 +47,20 @@ public class User extends AuditModel {
     @JsonIgnore
     private Role role;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinTable(name = "student_answers",
+            joinColumns = @JoinColumn(name = "student_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "test_list_id", nullable = false))
+    private List<TestList> testLists;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinTable(name = "student_answers",
+            joinColumns = @JoinColumn(name = "student_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "answer_id", nullable = false))
+    private List<Answer> answers;
+
     public int getId() {
         return id;
     }
@@ -79,6 +93,14 @@ public class User extends AuditModel {
         return role;
     }
 
+    public List<TestList> getTestLists() {
+        return testLists;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
     public void setFirstName(String first_name) {
         this.firstName = first_name;
     }
@@ -105,6 +127,14 @@ public class User extends AuditModel {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public void setTestLists(List<TestList> testLists) {
+        this.testLists = testLists;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     @Override

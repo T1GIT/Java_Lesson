@@ -53,6 +53,13 @@ public class TestList extends AuditModel {
             inverseJoinColumns = @JoinColumn(name = "answer_id", nullable = false))
     private List<Answer> answers;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinTable(name = "student_answers",
+            joinColumns = @JoinColumn(name = "test_list_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "student_id", nullable = false))
+    private List<User> students;
+
     public int getId() {
         return id;
     }
@@ -70,6 +77,13 @@ public class TestList extends AuditModel {
     }
 
     public List<Question> getQuestions() { return questions; }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+    public List<User> getStudents() {
+        return students;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -89,6 +103,18 @@ public class TestList extends AuditModel {
 
     public void removeQuestion(Question question) {
         this.questions.remove(question);
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
     }
 
     @Override

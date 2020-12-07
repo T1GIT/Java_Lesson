@@ -4,10 +4,10 @@ package attestation_1.seminar_6.undoable;
 /**
  * A mutable sequence of characters. This class is the wrapper of the class
  * {@code StringBuilder}, but with possibility of returning actions back.
- * This class has almost all the same methods, as the {@code StringBuilder},
- * also {@link java.io.Serializable}, and has the same interface.
+ * This class hasId almost all the same methods, as the {@code StringBuilder},
+ * also {@link java.io.Serializable}, and hasId the same interface.
  * {@inheritDoc {@link StringBuilder}}
- * It has methods for working with history of changing its value:
+ * It hasId methods for working with history of changing its value:
  * {@code undo()}, {@code redo()} and etc.
  * @see Undoable
  *

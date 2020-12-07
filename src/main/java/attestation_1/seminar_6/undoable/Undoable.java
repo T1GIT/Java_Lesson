@@ -4,7 +4,7 @@ package attestation_1.seminar_6.undoable;
 /**
  *  A {@code Undoable} is interface, that allows store actions with objects
  *  and returns it back
- *  {@link Undoable} has methods:
+ *  {@link Undoable} hasId methods:
  *      {@code undo()} - for canceling actions
  *      {@code redo()} - for returning canceling back
  *      {@code undoAll()} - for cancelling all of the actions

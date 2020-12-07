@@ -4,6 +4,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="attestation_2:hibernate:resources:tests.cfg.xml" />
+          <unit-entry name="attestation_2:hibernate:resources:users_autos.cfg.xml" />
           <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="tests.cfg.xml" value="7095df68-417e-4ed4-8399-563367c2077b" />
           <unit-entry name="users_autos.cfg.xml" />
